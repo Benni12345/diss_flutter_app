@@ -70,6 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (context) => ResponseScreen(
                       imageInput: inputImage!, imageFile: _imageFile!))));
       _rewardedAd = null;
+      print("lol");
     }
   }
 
