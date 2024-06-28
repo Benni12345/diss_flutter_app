@@ -35,10 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
     });
 
     if (_imageFile != null && inputImage != null) {
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) =>
-              ResponseScreen(imageInput: inputImage!, imageFile: _imageFile!)));
-      // _showRewardedAd();
+      // Navigator.of(context).push(MaterialPageRoute(
+      //     builder: (context) =>
+      //         ResponseScreen(imageInput: inputImage!, imageFile: _imageFile!)));
+      _showRewardedAd();
     }
   }
 
@@ -59,10 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
       _rewardedAd!.fullScreenContentCallback =
           FullScreenContentCallback(onAdDismissedFullScreenContent: (ad) {
         ad.dispose();
-        _createRewardedAd();
       }, onAdFailedToShowFullScreenContent: (ad, error) {
         ad.dispose();
-        _createRewardedAd();
       });
       _rewardedAd!.show(
           onUserEarnedReward: (ad, reward) => Navigator.of(context).push(
@@ -70,7 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (context) => ResponseScreen(
                       imageInput: inputImage!, imageFile: _imageFile!))));
       _rewardedAd = null;
-      print("lol");
     }
   }
 
@@ -96,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Expanded(
               child: Align(
-                  alignment: FractionalOffset.bottomCenter,
+                  alignment: Alignment.bottomCenter,
                   child: Container(
                     width: double.infinity,
                     height: 60,
